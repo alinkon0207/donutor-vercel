@@ -1,0 +1,61 @@
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.header {
+  height: 65px;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+}
+
+.wall {
+  border-radius: 16px;
+  padding: 12px 18px;
+  background-color: white;
+  width: 450px;
+}
+
+@media screen and (max-width: 500px) {
+  .wall {
+    width: 100%;
+  }
+}
+
+.donate {
+  border-radius: 16px;
+  padding: 12px;
+  background-color: white;
+}
+
+.title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.btnDonate {
+  width: 33%;
+}

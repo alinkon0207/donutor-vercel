@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  walletNumber    String  @id
+  username        String  @unique
+
+  donuts          Donut[] @relation(name: "to")
+  sent            Donut[] @relation(name: "from")
+}
+
+model Donut {
+  id               Int     @id @default(autoincrement())
+  toWalletNumber   String
+  fromWalletNumber String
+  fromName         String?
+  comment          String?
+  amount           String?
+  user             User?    @relation(name: "to", fields: [toWalletNumber], references: [walletNumber])
+  fromUser         User?    @relation(name: "from", fields: [fromWalletNumber], references: [walletNumber])
+  createdAt        DateTime @default(now())
+
+  @@index([toWalletNumber])
+}
